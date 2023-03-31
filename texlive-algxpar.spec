@@ -1,6 +1,6 @@
 Name:		texlive-algxpar
 Version:	56006
-Release:	1
+Release:	2
 Summary:	Support multiple lines pseudocode
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/algxpar
