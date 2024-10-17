@@ -3,7 +3,7 @@ Version:	56006
 Release:	2
 Summary:	Support multiple lines pseudocode
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/algxpar
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/algxpar
 License:	lppl1.3
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/algxpar.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/algxpar.doc.r%{version}.tar.xz
