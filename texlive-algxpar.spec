@@ -1,39 +1,31 @@
-Name:		texlive-algxpar
-Version:	56006
-Release:	2
-Summary:	Support multiple lines pseudocode
+%global tl_name algxpar
+%global tl_revision 76924
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	0.99.2a
+Release:	%{tl_revision}.1
+Summary:	Support multiple lines of pseudocode
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/algxpar
-License:	lppl1.3
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/algxpar.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/algxpar.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/algxpar.source.r%{version}.tar.xz
+License:	lppl1.3c
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/algxpar.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/algxpar.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Requires:	texlive(algorithmicx)
+Requires:	texlive(amsfonts)
+Requires:	texlive(etoolbox)
+Requires:	texlive(pgf)
+Requires:	texlive(pgfopts)
+Requires:	texlive(ragged2e)
+Requires:	texlive(varwidth)
+Requires:	texlive(xcolor)
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-This package extends the package algorithmicx to support long
-text which spans over multiple lines.
+This package extends the package algorithmicx to support long text which
+spans over multiple lines.
 
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%doc %{_texmfdistdir}/source/latex/algxpar
-%{_texmfdistdir}/tex/latex/algxpar
-%doc %{_texmfdistdir}/doc/latex/algxpar
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
